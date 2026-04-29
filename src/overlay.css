@@ -1,0 +1,36 @@
+/* overlay.css */
+.mf-badge-wrap {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 5px 12px; margin: 8px 0;
+  background: #e8efc4; border: 1px solid #706c3e; border-radius: 6px;
+  font-family: system-ui; font-size: 12px;
+  opacity: 0; transform: translateY(-4px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+.mf-badge-wrap--visible { opacity: 1; transform: translateY(0); }
+.mf-badge-label { font-size: 10px; color: #4a6080; text-transform: uppercase; letter-spacing: .08em; }
+.mf-badge-timer { font-size: 14px; font-weight: 700; letter-spacing: .05em; font-variant-numeric: tabular-nums; }
+.mf-badge--ok      { color: #34d399; }
+.mf-badge--urgent  { color: #f59e0b; }
+.mf-badge--overdue { color: #e8efc4; animation: mf-blink 1s step-end infinite; }
+.mf-badge--done    { color: #34d399; }
+@keyframes mf-blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+[data-color-mode="light"] .mf-badge-label { color: #64748b; }
+
+/* Blocks “vague approval” comments like LGTM */
+.mf-vague-warning{
+  margin: 0 0 8px 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(248,113,113,.6);
+  background: rgba(248,113,113,.12);
+  color: #991b1b;
+  font-family: system-ui;
+  font-size: 12px;
+  line-height: 1.35;
+}
+[data-color-mode="dark"] .mf-vague-warning{
+  color: #fecaca;
+  border-color: rgba(248,113,113,.55);
+  background: rgba(248,113,113,.16);
+}

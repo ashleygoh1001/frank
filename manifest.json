@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Frank",
+  "version": "5.0.0",
+  "description": "Per-repo project groups with feedback timers and team coordination",
+  "permissions": ["storage", "alarms", "notifications"],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://api.github.com/*"
+  ],
+  "background": { "service_worker": "src/background.js" },
+  "content_scripts": [{
+    "matches": ["https://github.com/*"],
+    "js": ["src/content.js"],
+    "css": ["src/overlay.css"],
+    "run_at": "document_idle"
+  }],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Frank"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
